@@ -41,24 +41,25 @@ public class Main {
 	}
 	
 	private static void writeToXls(List<WordDto> dtos){
-		byte[] aux = WordDtoExcel.createExcelFromWordDto(dtos);
-		dumpToDisk(aux);
+//		byte[] aux = WordDtoExcel.createExcelFromWordDto(dtos);
+//		dumpToDisk(aux);
+		CsvFileWriter.writeCsvFile(OUTPUT_PATH, dtos);
 	}
 
 	
-	private static void dumpToDisk( byte[] fileContent) {
-		FileOutputStream fos = null;
-		try {
-			fos = new FileOutputStream(new File(OUTPUT_PATH));
-			fos.write(fileContent);
-			fos.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}finally{
-			IOUtils.closeQuietly(fos);
-		}
-	}
+//	private static void dumpToDisk( byte[] fileContent) {
+//		FileOutputStream fos = null;
+//		try {
+//			fos = new FileOutputStream(new File(OUTPUT_PATH));
+//			fos.write(fileContent);
+//			fos.close();
+//		} catch (FileNotFoundException e) {
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}finally{
+//			IOUtils.closeQuietly(fos);
+//		}
+//	}
 
 }
